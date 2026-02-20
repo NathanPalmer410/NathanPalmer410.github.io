@@ -1,95 +1,45 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Visualizing Top NBA Performers in Python",
     "section": "",
-    "text": "Nathan Palmer"
+    "text": "When every player is elite, it can be difficult to tell who is truly standing out among the stars. Traditional box score stats like points or rebounds only tell part of the story. Using advanced analytics allows us to quantify overall contributions, efficiency, and impact, helping identify players who might be undervalued or underacknowledged by casual fans.\nIn this tutorial, you’ll learn how to load NBA data from publicly available sources and use Python to explore these advanced metrics. The dataset we’ll use contains advanced stats for major players in the current NBA season (2025–2026) and is available at Basketball Reference. By the end of this guide, you’ll be able to filter, visualize, and compare top performers using meaningful metrics."
   },
   {
-    "objectID": "about.html#background",
-    "href": "about.html#background",
-    "title": "About Me",
-    "section": "Background",
-    "text": "Background\nI am a junior at BYU studying Statistics with an emphasis in Data Science! I’m interested in finding patterns in data and using them to make data driven decisions.\nSome of my previous coursework projects include:\n\nBayesian Inference for Competitive Balance (Oct–Dec 2025): Built a Beta-Binomial hierarchical model to estimate NBA conference win probabilities; processed 200+ game records and quantified uncertainty with Monte Carlo simulations.\n\nComparative Player Performance Modeling (Mar–Apr 2025): Scraped and cleaned NBA game logs, created visual analytics, and developed matched-opponent comparisons to fairly evaluate MVP candidates.\n\nMixed-Effects ANOVA for HCI Study (Oct–Dec 2024): Designed and analyzed a typing-speed experiment with mixed-effects models; led team in data collection, diagnostics, and presentation.\n\nIn addition to my academic work, I completed my Eagle Scout project, where I built a garden plot and benches for a Civil War museum, leading the planning, construction, and coordination with museum staff."
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About Me",
-    "section": "Education",
-    "text": "Education\n\nBS in Statistics - Brigham Young University, 2027\nRelevant Coursework: Probability and Inference, Statistical Methods, Bayesian Analysis, Data Wrangling, Linear and Computational Algebra, Data Visualization, Data Science Processes."
-  },
-  {
-    "objectID": "about.html#skills-interests",
-    "href": "about.html#skills-interests",
-    "title": "About Me",
-    "section": "Skills & Interests",
-    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python, R, Bash\nData Analysis: Pandas, NumPy, R\nVisualization: Matplotlib, Seaborn, ggplot2\nMachine Learning: Scikit-learn\nTools: Jupyter Notebooks, Git/GitHub\n\n\n\nAreas of Interest\n\nSports Analytics\nMachine Learning\nFinancial Analytics"
-  },
-  {
-    "objectID": "about.html#goals",
-    "href": "about.html#goals",
-    "title": "About Me",
-    "section": "Goals",
-    "text": "Goals\nIn the short term I want to better integrate machine learning into my skill set and gain more practical experience with cleaning data and visualization. In the future I hope to apply analytics to improve player performance, strategy, and team decision making on a major sports team."
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About Me",
-    "section": "Contact",
-    "text": "Contact\n\nEmail: nathandpalmer8426@gmail.com\nGitHub: github.com/NathanPalmer410\nLinkedIn: linkedin.com/in/nathan-palmer-939b07388/\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
-  },
-  {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects Overview",
+    "objectID": "blog.html#introduction",
+    "href": "blog.html#introduction",
+    "title": "Visualizing Top NBA Performers in Python",
     "section": "",
-    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
-    "crumbs": [
-      "Projects Overview"
-    ]
+    "text": "When every player is elite, it can be difficult to tell who is truly standing out among the stars. Traditional box score stats like points or rebounds only tell part of the story. Using advanced analytics allows us to quantify overall contributions, efficiency, and impact, helping identify players who might be undervalued or underacknowledged by casual fans.\nIn this tutorial, you’ll learn how to load NBA data from publicly available sources and use Python to explore these advanced metrics. The dataset we’ll use contains advanced stats for major players in the current NBA season (2025–2026) and is available at Basketball Reference. By the end of this guide, you’ll be able to filter, visualize, and compare top performers using meaningful metrics."
   },
   {
-    "objectID": "projects/index.html#all-projects",
-    "href": "projects/index.html#all-projects",
-    "title": "Projects Overview",
-    "section": "",
-    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
-    "crumbs": [
-      "Projects Overview"
-    ]
+    "objectID": "blog.html#loading-in-the-data",
+    "href": "blog.html#loading-in-the-data",
+    "title": "Visualizing Top NBA Performers in Python",
+    "section": "Loading in the Data",
+    "text": "Loading in the Data\nWe first want to import the libraries we’ll be using for this, as well as the data. For this project we’ll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using table[0] selects the first one.\n\n\nCode\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nurl = \"https://www.basketball-reference.com/leagues/NBA_2026_advanced.html\"\ntable = pd.read_html(url)\n# Selects table with all the data we want\nplayers = table[0]\n\n\nLet’s look at what our data looks like without any filtering.\n\n\nCode\nplayers.head()\n\n\n\n\n\n\n\n\n\nRk\nPlayer\nAge\nTeam\nPos\nG\nGS\nMP\nPER\nTS%\n...\nUSG%\nOWS\nDWS\nWS\nWS/48\nOBPM\nDBPM\nBPM\nVORP\nAwards\n\n\n\n\n0\n1.0\nTyrese Maxey\n25.0\nPHI\nPG\n53.0\n53.0\n2046.0\n22.5\n0.597\n...\n29.2\n5.3\n2.1\n7.4\n0.174\n5.2\n0.5\n5.8\n4.0\nAS\n\n\n1\n2.0\nAmen Thompson\n23.0\nHOU\nPG\n53.0\n53.0\n1974.0\n17.8\n0.567\n...\n20.2\n3.5\n2.5\n6.0\n0.146\n0.9\n0.9\n1.8\n1.9\nNaN\n\n\n2\n3.0\nMikal Bridges\n29.0\nNYK\nSF\n56.0\n56.0\n1921.0\n16.5\n0.602\n...\n17.5\n4.0\n2.2\n6.2\n0.155\n2.0\n1.3\n3.3\n2.6\nNaN\n\n\n3\n4.0\nScottie Barnes\n24.0\nTOR\nPF\n55.0\n55.0\n1890.0\n19.5\n0.575\n...\n24.1\n2.3\n3.2\n5.5\n0.139\n1.7\n2.2\n3.8\n2.8\nAS\n\n\n4\n5.0\nJulius Randle\n31.0\nMIN\nPF\n56.0\n56.0\n1882.0\n20.1\n0.599\n...\n26.5\n4.4\n2.3\n6.6\n0.169\n2.5\n0.1\n2.6\n2.2\nNaN\n\n\n\n\n5 rows × 29 columns\n\n\n\nWe can see that each player has their associated advanced player statistcs. It looks like we’ve imported everything correctly!"
   },
   {
-    "objectID": "projects/eda.html",
-    "href": "projects/eda.html",
-    "title": "EDA Project",
-    "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
-    "crumbs": [
-      "EDA Project"
-    ]
+    "objectID": "blog.html#filtering-the-data",
+    "href": "blog.html#filtering-the-data",
+    "title": "Visualizing Top NBA Performers in Python",
+    "section": "Filtering the Data",
+    "text": "Filtering the Data\nThe data is already in a really nice format so the majority of our filtering will just be to focus on a subset of players rather than doing any cleaning of data.\nThere is one common issue when using Basketball Reference. It’s that the Rk tab at the top of the table actually repeats after about 20 or 30 cells. We want to get rid of that so we don’t have any issues with it farther down the line.\n\n\nCode\nplayers = players[players[\"Rk\"] != \"Rk\"]\n\n\nNow we want to filter the data to the best of the best players, the All-Stars for this NBA season. All-Stars in the NBA are selected by a combination of players and fans voting on who they think the best players in the NBA are currently. To do this I just created a list with every All-Star and then filtered only for NBA players that are within that list.\n\n\nCode\nall_stars = [\"Scottie Barnes\",\"Devin Booker\",\"Cade Cunningham\", \"Jalen Duren\",\"Anthony Edwards\",\n             \"Chet Holmgren\",\"Jalen Johnson\",\"Tyrese Maxey\",\"Jaylen Brown\",\"Jalen Brunson\",\n             \"Kevin Durant\",\"De'Aaron Fox\",\"Brandon Ingram\", \"Lebron James\",\"Kawhi Leonard\",\n             \"Donovan Mitchell\",\"Stephen Curry\",\"Deni Avdija\",\"Luka Dončić\",\n             \"Shai Gilgeous-Alexander\",\"Nikola Jokić\", \"Jamal Murray\",\"Norman Powell\",\n             \"Alperen Sengun\",\"Pascsal Siakam\",\"Karl-Anthony Towns\",\"Victor Wembanyama\",\n             \"Giannis Antetokounmpo\"]\n\n# Filters DataFrame to just All-Star players\nall_star_players = players[players[\"Player\"].isin(all_stars)]"
   },
   {
-    "objectID": "projects/data-acquisition.html",
-    "href": "projects/data-acquisition.html",
-    "title": "Data Acquisition Project",
-    "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
-    "crumbs": [
-      "Data Acquisition Project"
-    ]
+    "objectID": "blog.html#plotting",
+    "href": "blog.html#plotting",
+    "title": "Visualizing Top NBA Performers in Python",
+    "section": "Plotting",
+    "text": "Plotting\nAs I referenced earlier I will be using matplotlib for this portion. The advanced stat of my choosing is going to be PER (Player Efficiency Rating). PER is a formula that combines all the good and bad things a player does into a single number. It’s a good way to get a sense of how all-around elite a player is.\n\n\nCode\n# Ensures that PER is treated as a numeric type\nall_star_players[\"PER\"] = pd.to_numeric(all_star_players[\"PER\"], errors=\"coerce\")\n\n# Make the plot BIG\nplt.figure(figsize=(12,6))\n\n# Plots players as bars\nplt.bar(all_star_players[\"Player\"], all_star_players[\"PER\"], color=\"skyblue\")\n\n# Makes x-axis labels readable\nplt.xticks(rotation=45, ha=\"right\")\nplt.ylabel(\"PER\")\nplt.title(\"2025-2026 NBA All-Stars - PER Comparison\")\nplt.tight_layout()\n\n# Save figure for embedding\nplt.savefig(\"all_stars_per.png\")"
   },
   {
-    "objectID": "projects/final-project.html",
-    "href": "projects/final-project.html",
-    "title": "Final Project",
-    "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
-    "crumbs": [
-      "Final Project"
-    ]
+    "objectID": "blog.html#conclusion",
+    "href": "blog.html#conclusion",
+    "title": "Visualizing Top NBA Performers in Python",
+    "section": "Conclusion",
+    "text": "Conclusion\nWe now have a beautiful plot! We can see that the three standout players are Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo, which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for PER is about 15, and every single person in this set is above that number.\nYou can now use this info to do all sorts of player comparisons for yourself! Or you even look into differences in team stats as that data is also available on Basketball Reference."
   },
   {
     "objectID": "index.html",
@@ -120,10 +70,102 @@
     "text": "Learn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis.\n\n\n\nSee how I tackle a data science project beginning to end.\n\n\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
   },
   {
+    "objectID": "projects/final-project.html",
+    "href": "projects/final-project.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "This is coming down the pipeline. Check again later.",
+    "crumbs": [
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html",
+    "href": "projects/data-acquisition.html",
+    "title": "Data Acquisition Project",
+    "section": "",
+    "text": "This is coming down the pipeline. Check again later.",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/eda.html",
+    "href": "projects/eda.html",
+    "title": "EDA Project",
+    "section": "",
+    "text": "This is coming down the pipeline. Check again later.",
+    "crumbs": [
+      "EDA Project"
+    ]
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects Overview",
+    "section": "",
+    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
+    "crumbs": [
+      "Projects Overview"
+    ]
+  },
+  {
+    "objectID": "projects/index.html#all-projects",
+    "href": "projects/index.html#all-projects",
+    "title": "Projects Overview",
+    "section": "",
+    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
+    "crumbs": [
+      "Projects Overview"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Nathan Palmer"
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About Me",
+    "section": "Background",
+    "text": "Background\nI am a junior at BYU studying Statistics with an emphasis in Data Science! I’m interested in finding patterns in data and using them to make data driven decisions.\nSome of my previous coursework projects include:\n\nBayesian Inference for Competitive Balance (Oct–Dec 2025): Built a Beta-Binomial hierarchical model to estimate NBA conference win probabilities; processed 200+ game records and quantified uncertainty with Monte Carlo simulations.\n\nComparative Player Performance Modeling (Mar–Apr 2025): Scraped and cleaned NBA game logs, created visual analytics, and developed matched-opponent comparisons to fairly evaluate MVP candidates.\n\nMixed-Effects ANOVA for HCI Study (Oct–Dec 2024): Designed and analyzed a typing-speed experiment with mixed-effects models; led team in data collection, diagnostics, and presentation.\n\nIn addition to my academic work, I completed my Eagle Scout project, where I built a garden plot and benches for a Civil War museum, leading the planning, construction, and coordination with museum staff."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n\nBS in Statistics - Brigham Young University, 2027\nRelevant Coursework: Probability and Inference, Statistical Methods, Bayesian Analysis, Data Wrangling, Linear and Computational Algebra, Data Visualization, Data Science Processes."
+  },
+  {
+    "objectID": "about.html#skills-interests",
+    "href": "about.html#skills-interests",
+    "title": "About Me",
+    "section": "Skills & Interests",
+    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python, R, Bash\nData Analysis: Pandas, NumPy, R\nVisualization: Matplotlib, Seaborn, ggplot2\nMachine Learning: Scikit-learn\nTools: Jupyter Notebooks, Git/GitHub\n\n\n\nAreas of Interest\n\nSports Analytics\nMachine Learning\nFinancial Analytics"
+  },
+  {
     "objectID": "about.html#get-to-know-me",
     "href": "about.html#get-to-know-me",
     "title": "About Me",
     "section": "Get To Know Me",
     "text": "Get To Know Me\nI’m a passionate sports fan, cheering for the Cleveland Browns**, Indiana Pacers, and BYU. I enjoy staying active through playing basketball and running. I love board games and trivia and was on the trivia team in high school when I memorized every capital of every country in the world (I still remember most of them). I also love the outdoors, I camp, hike, and fish with my brother often."
+  },
+  {
+    "objectID": "about.html#goals",
+    "href": "about.html#goals",
+    "title": "About Me",
+    "section": "Goals",
+    "text": "Goals\nIn the short term I want to better integrate machine learning into my skill set and gain more practical experience with cleaning data and visualization. In the future I hope to apply analytics to improve player performance, strategy, and team decision making on a major sports team."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\n\nEmail: nathandpalmer8426@gmail.com\nGitHub: github.com/NathanPalmer410\nLinkedIn: linkedin.com/in/nathan-palmer-939b07388/\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
   }
 ]
