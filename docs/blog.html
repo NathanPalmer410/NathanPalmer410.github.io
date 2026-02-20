@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loading-in-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="loading-in-the-data">Loading in the Data</h2>
 <p>We first want to import the libraries we’ll be using for this, as well as the data. For this project we’ll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using <code>table[0]</code> selects the first one.</p>
-<div id="b9279ee6" class="cell" data-execution_count="1">
+<div id="6af28e50" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Let’s look at what our data looks like without any filtering.</p>
-<div id="4e83c0aa" class="cell" data-execution_count="2">
+<div id="c0756a69" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>players.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -413,14 +413,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="filtering-the-data">Filtering the Data</h2>
 <p>The data is already in a really nice format so the majority of our filtering will just be to focus on a subset of players rather than doing any cleaning of data.</p>
 <p>There is one common issue when using <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">Basketball Reference</a>. It’s that the <strong>Rk</strong> tab at the top of the table actually repeats after about 20 or 30 cells. We want to get rid of that so we don’t have any issues with it farther down the line.</p>
-<div id="3d6b2e0b" class="cell" data-execution_count="3">
+<div id="3da1abaf" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> players[players[<span class="st">"Rk"</span>] <span class="op">!=</span> <span class="st">"Rk"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Now we want to filter the data to the best of the best players, the All-Stars for this NBA season. All-Stars in the NBA are selected by a combination of players and fans voting on who they think the best players in the NBA are currently. To do this I just created a list with every All-Star and then filtered only for NBA players that are within that list.</p>
-<div id="7626fa90" class="cell" data-execution_count="4">
+<div id="0ab3911f" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>all_stars <span class="op">=</span> [<span class="st">"Scottie Barnes"</span>,<span class="st">"Devin Booker"</span>,<span class="st">"Cade Cunningham"</span>, <span class="st">"Jalen Duren"</span>,<span class="st">"Anthony Edwards"</span>,</span>
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plotting" class="level2">
 <h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
 <p>As I referenced earlier I will be using matplotlib for this portion. The advanced stat of my choosing is going to be <strong>PER (Player Efficiency Rating)</strong>. <strong>PER</strong> is a formula that combines all the good and bad things a player does into a single number. It’s a good way to get a sense of how all-around elite a player is.</p>
-<div id="51a0ac70" class="cell" data-execution_count="5">
+<div id="79877b84" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensures that PER is treated as a numeric type</span></span>
@@ -472,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>We now have a beautiful plot! We can see that the three standout players are <strong>Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo,</strong> which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for <strong>PER</strong> is about 15, and every single person in this set is above that number.</p>
-<p>You can now use this info to do all sorts of player comparisons for yourself! Or you even look into differences in team stats as that data is also available on <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">Basketball Reference</a>.</p>
+<p>You can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">Basketball Reference</a>.</p>
 
 
 <!-- -->
@@ -1021,7 +1021,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>We now have a beautiful plot! We can see that the three standout players are **Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo,** which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It's worth mentioning that the league average for **PER** is about 15, and every single person in this set is above that number. </span>
 <span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>You can now use this info to do all sorts of player comparisons for yourself! Or you even look into differences in team stats as that data is also available on <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>.</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>You can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>. </span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

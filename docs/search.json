@@ -39,7 +39,7 @@
     "href": "blog.html#conclusion",
     "title": "Visualizing Top NBA Performers in Python",
     "section": "Conclusion",
-    "text": "Conclusion\nWe now have a beautiful plot! We can see that the three standout players are Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo, which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for PER is about 15, and every single person in this set is above that number.\nYou can now use this info to do all sorts of player comparisons for yourself! Or you even look into differences in team stats as that data is also available on Basketball Reference."
+    "text": "Conclusion\nWe now have a beautiful plot! We can see that the three standout players are Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo, which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for PER is about 15, and every single person in this set is above that number.\nYou can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on Basketball Reference."
   },
   {
     "objectID": "index.html",
