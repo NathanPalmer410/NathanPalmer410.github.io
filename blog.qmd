@@ -88,4 +88,4 @@ plt.savefig("all_stars_per.png")
 
 We now have a beautiful plot! We can see that the three standout players are **Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo,** which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It's worth mentioning that the league average for **PER** is about 15, and every single person in this set is above that number. 
 
-You can now use this info to do all sorts of player comparisons for yourself! Or you even look into differences in team stats as that data is also available on [Basketball Reference](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html).
+You can now use this info to do all sorts of player comparisons for yourself or even look into differences in team stats as that data is also available on [Basketball Reference](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html). 
