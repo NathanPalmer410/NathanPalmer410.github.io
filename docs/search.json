@@ -18,7 +18,7 @@
     "href": "blog.html#loading-in-the-data",
     "title": "Visualizing Top NBA Performers in Python",
     "section": "Loading in the Data",
-    "text": "Loading in the Data\nWe first want to import the libraries we’ll be using for this, as well as the data. For this project we’ll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using table[0] selects the first one.\n\n\nCode\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nurl = \"https://www.basketball-reference.com/leagues/NBA_2026_advanced.html\"\ntable = pd.read_html(url)\n# Selects table with all the data we want\nplayers = table[0]\n\n\nLet’s look at what our data looks like without any filtering.\n\n\nCode\nplayers.head()\n\n\n\n\n\n\n\n\n\nRk\nPlayer\nAge\nTeam\nPos\nG\nGS\nMP\nPER\nTS%\n...\nUSG%\nOWS\nDWS\nWS\nWS/48\nOBPM\nDBPM\nBPM\nVORP\nAwards\n\n\n\n\n0\n1.0\nTyrese Maxey\n25.0\nPHI\nPG\n53.0\n53.0\n2046.0\n22.5\n0.597\n...\n29.2\n5.3\n2.1\n7.4\n0.174\n5.2\n0.5\n5.8\n4.0\nAS\n\n\n1\n2.0\nAmen Thompson\n23.0\nHOU\nPG\n53.0\n53.0\n1974.0\n17.8\n0.567\n...\n20.2\n3.5\n2.5\n6.0\n0.146\n0.9\n0.9\n1.8\n1.9\nNaN\n\n\n2\n3.0\nMikal Bridges\n29.0\nNYK\nSF\n56.0\n56.0\n1921.0\n16.5\n0.602\n...\n17.5\n4.0\n2.2\n6.2\n0.155\n2.0\n1.3\n3.3\n2.6\nNaN\n\n\n3\n4.0\nScottie Barnes\n24.0\nTOR\nPF\n55.0\n55.0\n1890.0\n19.5\n0.575\n...\n24.1\n2.3\n3.2\n5.5\n0.139\n1.7\n2.2\n3.8\n2.8\nAS\n\n\n4\n5.0\nJulius Randle\n31.0\nMIN\nPF\n56.0\n56.0\n1882.0\n20.1\n0.599\n...\n26.5\n4.4\n2.3\n6.6\n0.169\n2.5\n0.1\n2.6\n2.2\nNaN\n\n\n\n\n5 rows × 29 columns\n\n\n\nWe can see that each player has their associated advanced player statistcs. It looks like we’ve imported everything correctly!"
+    "text": "Loading in the Data\nWe first want to import the libraries we’ll be using for this, as well as the data. For this project we’ll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using table[0] selects the first one.\n\n\nCode\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nurl = \"https://www.basketball-reference.com/leagues/NBA_2026_advanced.html\"\ntable = pd.read_html(url)\n# Selects table with all the data we want\nplayers = table[0]\n\n\nLet’s look at what our data looks like without any filtering.\n\n\nCode\nplayers.head()\n\n\n\n\n\n\n\n\n\nRk\nPlayer\nAge\nTeam\nPos\nG\nGS\nMP\nPER\nTS%\n...\nUSG%\nOWS\nDWS\nWS\nWS/48\nOBPM\nDBPM\nBPM\nVORP\nAwards\n\n\n\n\n0\n1.0\nTyrese Maxey\n25.0\nPHI\nPG\n61.0\n61.0\n2334.0\n22.6\n0.589\n...\n29.9\n5.7\n2.4\n8.0\n0.166\n5.3\n0.5\n5.8\n4.6\nAS\n\n\n1\n2.0\nAmen Thompson\n23.0\nHOU\nPG\n62.0\n62.0\n2300.0\n18.3\n0.580\n...\n20.2\n4.5\n2.9\n7.4\n0.155\n1.3\n1.0\n2.2\n2.4\nNaN\n\n\n2\n3.0\nKevin Durant\n37.0\nHOU\nSF\n61.0\n61.0\n2232.0\n21.0\n0.635\n...\n27.3\n5.7\n2.5\n8.3\n0.178\n4.1\n0.1\n4.2\n3.5\nAS\n\n\n3\n4.0\nMikal Bridges\n29.0\nNYK\nSF\n66.0\n66.0\n2223.0\n16.0\n0.590\n...\n17.5\n4.2\n2.9\n7.0\n0.152\n1.7\n1.7\n3.3\n3.0\nNaN\n\n\n4\n5.0\nToumani Camara\n25.0\nPOR\nPF\n66.0\n66.0\n2219.0\n10.4\n0.558\n...\n16.1\n1.0\n1.7\n2.7\n0.059\n-1.5\n-0.4\n-1.9\n0.1\nNaN\n\n\n\n\n5 rows × 29 columns\n\n\n\nWe can see that each player has their associated advanced player statistcs. It looks like we’ve imported everything correctly!"
   },
   {
     "objectID": "blog.html#filtering-the-data",
@@ -39,7 +39,7 @@
     "href": "blog.html#conclusion",
     "title": "Visualizing Top NBA Performers in Python",
     "section": "Conclusion",
-    "text": "Conclusion\nWe now have a beautiful plot! We can see that the three standout players are Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo, which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for PER is about 15, and every single person in this set is above that number.\nYou can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on Basketball Reference"
+    "text": "Conclusion\nWe now have a beautiful plot! We can see that the three standout players are Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo, which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for PER is about 15, and every single person in this set is above that number.\nYou can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on Basketball Reference!"
   },
   {
     "objectID": "index.html",
@@ -84,7 +84,77 @@
     "href": "projects/data-acquisition.html",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
+    "text": "Have you ever wanted to see your Spotify wrapped before they release it to everyone, or wanted to access the data for your favorite songs in a much more efficient way? Fortunately, Spotify’s API lets you do both, quickly and efficiently. In this blog post I’ll show a brief tutorial on how you can get started yourself and an example of how I found out if my songs rank was correlated by the duration of the song.",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#introduction",
+    "href": "projects/data-acquisition.html#introduction",
+    "title": "Data Acquisition Project",
+    "section": "",
+    "text": "Have you ever wanted to see your Spotify wrapped before they release it to everyone, or wanted to access the data for your favorite songs in a much more efficient way? Fortunately, Spotify’s API lets you do both, quickly and efficiently. In this blog post I’ll show a brief tutorial on how you can get started yourself and an example of how I found out if my songs rank was correlated by the duration of the song.",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#getting-credentials",
+    "href": "projects/data-acquisition.html#getting-credentials",
+    "title": "Data Acquisition Project",
+    "section": "Getting Credentials",
+    "text": "Getting Credentials\nBefore accessing Spotify’s data you need to register a developer application to get your API credentials. This can be done by visiting Spotify for Developers and logging in. It’s worth noting that this does require a Spotify Premium account. Once you create your app you will need to copy and paste your Client ID and Client Secret, as well as set a Redirect URL. All three of these things will be required for proper authentication. I recommend storing these in a .env file, allowing you to keep the keys out of your code like below.\n\n\nCode\nCLIENT_ID=your_client_id_here\nCLIENT_SECRET=your_client_secret_here\nREDIRECT_URI= http://localhost:8888/callback",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#authenticating-with-spotipy",
+    "href": "projects/data-acquisition.html#authenticating-with-spotipy",
+    "title": "Data Acquisition Project",
+    "section": "Authenticating with Spotipy",
+    "text": "Authenticating with Spotipy\nSpotipy is a wrapper for Spotify Web API, which simplifies authentication and data retrieval. The documentation for it can be found here. It also ensures that you only access data that you are allowed to see and you don’t perform anything unethical via spotipy.oauth2. All the imports and the basic authentication are shown below. The Scope parameter gives permission to obtain the user’s top songs over different time periods. (short_term - 4 weeks, medium_term - 6 months, and long_term - all-time)\n\n\nCode\nimport spotipy\nfrom spotipy.oauth2 import SpotifyOAuth\nfrom dotenv import load_dotenv\nimport os\nimport pandas as pd\nimport csv\n\nload_dotenv()\n\nsp = spotipy.Spotify(auth_manager=SpotifyOAuth(\n    client_id=os.getenv(\"CLIENT_ID\"),\n    client_secret=os.getenv(\"CLIENT_SECRET\"),\n    redirect_uri=os.getenv(\"REDIRECT_URI\"),\n    scope=\"user-top-read\"\n))",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#acquiring-the-top-200-tracks",
+    "href": "projects/data-acquisition.html#acquiring-the-top-200-tracks",
+    "title": "Data Acquisition Project",
+    "section": "Acquiring the Top 200 Tracks",
+    "text": "Acquiring the Top 200 Tracks\nSpotify’s API allows a maximum of 50 tracks per request, so to get around this you need to re-request after the first request for 50 has gone through. We do this by using a step of 50 with offset being the index and then extending the list.\n\n\nCode\ntop_tracks = []\nfor offset in range(0, 200, 50):\n    results = sp.current_user_top_tracks(limit=50, offset=offset, time_range='long_term')\n    top_tracks.extend(results['items'])\n\n\nEach track has the columns name, artists, album, duration_ms, and id.",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#saving-our-data-to-a-csv",
+    "href": "projects/data-acquisition.html#saving-our-data-to-a-csv",
+    "title": "Data Acquisition Project",
+    "section": "Saving Our Data to a CSV",
+    "text": "Saving Our Data to a CSV\nWe now simply write our data to a CSV, converting the duration_ms into seconds making it easier to work with in the future.\n\n\nCode\nwith open(\"top_200_tracks.csv\", \"w\", newline=\"\", encoding=\"utf-8\") as csvfile:\n    writer = csv.writer(csvfile)\n    writer.writerow([\"Rank\", \"Track Name\", \"Artists\", \"Album\", \"Duration_seconds\", \"Track ID\"])\n\n    for idx, track in enumerate(top_tracks, start=1):\n        artists = ', '.join([a['name'] for a in track['artists']])\n        duration_seconds = round(track['duration_ms'] / 1000, 2)\n        writer.writerow([idx, track['name'], artists, track['album']['name'], duration_seconds, track['id']])",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#correlation-between-rank-and-duration",
+    "href": "projects/data-acquisition.html#correlation-between-rank-and-duration",
+    "title": "Data Acquisition Project",
+    "section": "Correlation Between Rank and Duration",
+    "text": "Correlation Between Rank and Duration\nPandas makes exploring correlations easy, and for this analysis I’ll be using a Pearson correlation which measures linear relationships. This will tell us if as duration increases does the rank of the track also increase or vice versa. A result of 1 or -1 indicates strong correlation while a result near 0 indicates no correlation.\n\n\nCode\ntop_200 = pd.read_csv(\"top_200_tracks.csv\")\npearson_corr = top_200['Rank'].corr(top_200['Duration_seconds'], method='pearson')\n\n\nDoing this we get the correlation of -0.0001 which means there is no linear relationship between rank and duration.",
+    "crumbs": [
+      "Data Acquisition Project"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html#conclusion",
+    "href": "projects/data-acquisition.html#conclusion",
+    "title": "Data Acquisition Project",
+    "section": "Conclusion",
+    "text": "Conclusion\nWith just a few Python packages, you can explore your Spotify listening habits in depth. Spotipy’s OAuth authentication makes it simple to access personal data, while CSV export and pandas analysis allow you to measure correlations. From converting milliseconds to seconds to calculating Pearson correlations, you now have a complete workflow for exploring whether track duration affects your personal song rankings or exploring any other questions that your heart desires.",
     "crumbs": [
       "Data Acquisition Project"
     ]

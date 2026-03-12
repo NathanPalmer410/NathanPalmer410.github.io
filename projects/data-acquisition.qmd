@@ -1,11 +1,90 @@
 ---
 title: "Data Acquisition Project"
-author: "Your Name"
-date: "2025-01-01"
+author: "Nathan Palmer"
+date: "2026-03-11"
 format:
-  html:
-    code-fold: true
-    toc: true
----
+    html:
+      code-fold: show
+editor: visual
+execute: 
+  eval: false
+--- 
 
-This is coming down the pipeline. Check again later.
+## Introduction
+
+Have you ever wanted to see your Spotify wrapped before they release it to everyone, or wanted to access the data for your favorite songs in a much more efficient way? Fortunately, Spotify’s API lets you do both, quickly and efficiently. In this blog post I'll show a brief tutorial on how you can get started yourself and an example of how I found out if my songs rank was correlated by the duration of the song. 
+
+## Getting Credentials 
+
+Before accessing Spotify's data you need to register a developer application to get your API credentials. This can be done by visiting [Spotify for Developers](https://developer.spotify.com/dashboard) and logging in. It's worth noting that this does require a Spotify Premium account. Once you create your app you will need to copy and paste your Client ID and Client Secret, as well as set a Redirect URL. All three of these things will be required for proper authentication. I recommend storing these in a .env file, allowing you to keep the keys out of your code like below. 
+
+```{python eval:false}
+CLIENT_ID=your_client_id_here
+CLIENT_SECRET=your_client_secret_here
+REDIRECT_URI= http://localhost:8888/callback
+```
+
+## Authenticating with Spotipy 
+
+Spotipy is a wrapper for Spotify Web API, which simplifies authentication and data retrieval. The documentation for it can be found [here](https://spotipy.readthedocs.io/en/2.26.0/). It also ensures that you only access data that you are allowed to see and you don't perform anything unethical via spotipy.oauth2. All the imports and the basic authentication are shown below. The **Scope** parameter gives permission to obtain the user's top songs over different time periods. (short_term - 4 weeks, medium_term - 6 months, and long_term - all-time)
+```{python eval:false}
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
+from dotenv import load_dotenv
+import os
+import pandas as pd
+import csv
+
+load_dotenv()
+
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
+    client_id=os.getenv("CLIENT_ID"),
+    client_secret=os.getenv("CLIENT_SECRET"),
+    redirect_uri=os.getenv("REDIRECT_URI"),
+    scope="user-top-read"
+))
+```
+
+
+
+## Acquiring the Top 200 Tracks 
+
+Spotify's API allows a maximum of 50 tracks per request, so to get around this you need to re-request after the first request for 50 has gone through. We do this by using a step of 50 with offset being the index and then extending the list. 
+```{python eval:false}
+top_tracks = []
+for offset in range(0, 200, 50):
+    results = sp.current_user_top_tracks(limit=50, offset=offset, time_range='long_term')
+    top_tracks.extend(results['items'])
+```
+
+Each track has the columns **name**, **artists**, **album**, **duration_ms**, and **id**. 
+
+## Saving Our Data to a CSV
+
+We now simply write our data to a CSV, converting the duration_ms into seconds making it easier to work with in the future.
+
+```{python eval:false}
+with open("top_200_tracks.csv", "w", newline="", encoding="utf-8") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["Rank", "Track Name", "Artists", "Album", "Duration_seconds", "Track ID"])
+
+    for idx, track in enumerate(top_tracks, start=1):
+        artists = ', '.join([a['name'] for a in track['artists']])
+        duration_seconds = round(track['duration_ms'] / 1000, 2)
+        writer.writerow([idx, track['name'], artists, track['album']['name'], duration_seconds, track['id']])
+```
+
+## Correlation Between Rank and Duration
+Pandas makes exploring correlations easy, and for this analysis I'll be using a **Pearson correlation** which measures linear relationships. This will tell us if as duration increases does the rank of the track also increase or vice versa. A result of 1 or -1 indicates strong correlation while a result near 0 indicates no correlation. 
+
+```{python eval:false}
+top_200 = pd.read_csv("top_200_tracks.csv")
+pearson_corr = top_200['Rank'].corr(top_200['Duration_seconds'], method='pearson')
+```
+
+
+Doing this we get the correlation of -0.0001 which means there is no linear relationship between rank and duration. 
+
+## Conclusion
+
+With just a few Python packages, you can explore your Spotify listening habits in depth. Spotipy’s OAuth authentication makes it simple to access personal data, while CSV export and pandas analysis allow you to measure correlations. From converting milliseconds to seconds to calculating Pearson correlations, you now have a complete workflow for exploring whether track duration affects your personal song rankings or exploring any other questions that your heart desires.

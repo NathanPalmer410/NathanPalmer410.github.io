@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loading-in-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="loading-in-the-data">Loading in the Data</h2>
 <p>We first want to import the libraries we’ll be using for this, as well as the data. For this project we’ll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using <code>table[0]</code> selects the first one.</p>
-<div id="4e05aa85" class="cell" data-execution_count="1">
+<div id="d6dcf766" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Let’s look at what our data looks like without any filtering.</p>
-<div id="47b3d38e" class="cell" data-execution_count="2">
+<div id="4547fdd0" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>players.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -287,21 +287,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>25.0</td>
 <td>PHI</td>
 <td>PG</td>
-<td>53.0</td>
-<td>53.0</td>
-<td>2046.0</td>
-<td>22.5</td>
-<td>0.597</td>
+<td>61.0</td>
+<td>61.0</td>
+<td>2334.0</td>
+<td>22.6</td>
+<td>0.589</td>
 <td>...</td>
-<td>29.2</td>
+<td>29.9</td>
+<td>5.7</td>
+<td>2.4</td>
+<td>8.0</td>
+<td>0.166</td>
 <td>5.3</td>
-<td>2.1</td>
-<td>7.4</td>
-<td>0.174</td>
-<td>5.2</td>
 <td>0.5</td>
 <td>5.8</td>
-<td>4.0</td>
+<td>4.6</td>
 <td>AS</td>
 </tr>
 <tr class="even">
@@ -311,93 +311,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>23.0</td>
 <td>HOU</td>
 <td>PG</td>
-<td>53.0</td>
-<td>53.0</td>
-<td>1974.0</td>
-<td>17.8</td>
-<td>0.567</td>
+<td>62.0</td>
+<td>62.0</td>
+<td>2300.0</td>
+<td>18.3</td>
+<td>0.580</td>
 <td>...</td>
 <td>20.2</td>
-<td>3.5</td>
-<td>2.5</td>
-<td>6.0</td>
-<td>0.146</td>
-<td>0.9</td>
-<td>0.9</td>
-<td>1.8</td>
-<td>1.9</td>
+<td>4.5</td>
+<td>2.9</td>
+<td>7.4</td>
+<td>0.155</td>
+<td>1.3</td>
+<td>1.0</td>
+<td>2.2</td>
+<td>2.4</td>
 <td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
 <td>3.0</td>
-<td>Mikal Bridges</td>
-<td>29.0</td>
-<td>NYK</td>
+<td>Kevin Durant</td>
+<td>37.0</td>
+<td>HOU</td>
 <td>SF</td>
-<td>56.0</td>
-<td>56.0</td>
-<td>1921.0</td>
-<td>16.5</td>
-<td>0.602</td>
+<td>61.0</td>
+<td>61.0</td>
+<td>2232.0</td>
+<td>21.0</td>
+<td>0.635</td>
 <td>...</td>
-<td>17.5</td>
-<td>4.0</td>
-<td>2.2</td>
-<td>6.2</td>
-<td>0.155</td>
-<td>2.0</td>
-<td>1.3</td>
-<td>3.3</td>
-<td>2.6</td>
-<td>NaN</td>
+<td>27.3</td>
+<td>5.7</td>
+<td>2.5</td>
+<td>8.3</td>
+<td>0.178</td>
+<td>4.1</td>
+<td>0.1</td>
+<td>4.2</td>
+<td>3.5</td>
+<td>AS</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
 <td>4.0</td>
-<td>Scottie Barnes</td>
-<td>24.0</td>
-<td>TOR</td>
-<td>PF</td>
-<td>55.0</td>
-<td>55.0</td>
-<td>1890.0</td>
-<td>19.5</td>
-<td>0.575</td>
+<td>Mikal Bridges</td>
+<td>29.0</td>
+<td>NYK</td>
+<td>SF</td>
+<td>66.0</td>
+<td>66.0</td>
+<td>2223.0</td>
+<td>16.0</td>
+<td>0.590</td>
 <td>...</td>
-<td>24.1</td>
-<td>2.3</td>
-<td>3.2</td>
-<td>5.5</td>
-<td>0.139</td>
+<td>17.5</td>
+<td>4.2</td>
+<td>2.9</td>
+<td>7.0</td>
+<td>0.152</td>
 <td>1.7</td>
-<td>2.2</td>
-<td>3.8</td>
-<td>2.8</td>
-<td>AS</td>
+<td>1.7</td>
+<td>3.3</td>
+<td>3.0</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
 <td>5.0</td>
-<td>Julius Randle</td>
-<td>31.0</td>
-<td>MIN</td>
+<td>Toumani Camara</td>
+<td>25.0</td>
+<td>POR</td>
 <td>PF</td>
-<td>56.0</td>
-<td>56.0</td>
-<td>1882.0</td>
-<td>20.1</td>
-<td>0.599</td>
+<td>66.0</td>
+<td>66.0</td>
+<td>2219.0</td>
+<td>10.4</td>
+<td>0.558</td>
 <td>...</td>
-<td>26.5</td>
-<td>4.4</td>
-<td>2.3</td>
-<td>6.6</td>
-<td>0.169</td>
-<td>2.5</td>
+<td>16.1</td>
+<td>1.0</td>
+<td>1.7</td>
+<td>2.7</td>
+<td>0.059</td>
+<td>-1.5</td>
+<td>-0.4</td>
+<td>-1.9</td>
 <td>0.1</td>
-<td>2.6</td>
-<td>2.2</td>
 <td>NaN</td>
 </tr>
 </tbody>
@@ -413,14 +413,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="filtering-the-data">Filtering the Data</h2>
 <p>The data is already in a really nice format so the majority of our filtering will just be to focus on a subset of players rather than doing any cleaning of data.</p>
 <p>There is one common issue when using <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">Basketball Reference</a>. It’s that the <strong>Rk</strong> tab at the top of the table actually repeats after about 20 or 30 cells. We want to get rid of that so we don’t have any issues with it farther down the line.</p>
-<div id="fc23dcde" class="cell" data-execution_count="3">
+<div id="4ddb4372" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> players[players[<span class="st">"Rk"</span>] <span class="op">!=</span> <span class="st">"Rk"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Now we want to filter the data to the best of the best players, the All-Stars for this NBA season. All-Stars in the NBA are selected by a combination of players and fans voting on who they think the best players in the NBA are currently. To do this I just created a list with every All-Star and then filtered only for NBA players that are within that list.</p>
-<div id="be05a4e2" class="cell" data-execution_count="4">
+<div id="041efaad" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>all_stars <span class="op">=</span> [<span class="st">"Scottie Barnes"</span>,<span class="st">"Devin Booker"</span>,<span class="st">"Cade Cunningham"</span>, <span class="st">"Jalen Duren"</span>,<span class="st">"Anthony Edwards"</span>,</span>
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plotting" class="level2">
 <h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
 <p>As I referenced earlier I will be using matplotlib for this portion. The advanced stat of my choosing is going to be <strong>PER (Player Efficiency Rating)</strong>. <strong>PER</strong> is a formula that combines all the good and bad things a player does into a single number. It’s a good way to get a sense of how all-around elite a player is.</p>
-<div id="95886643" class="cell" data-execution_count="5">
+<div id="d00ac332" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensures that PER is treated as a numeric type</span></span>
@@ -472,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>We now have a beautiful plot! We can see that the three standout players are <strong>Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo,</strong> which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It’s worth mentioning that the league average for <strong>PER</strong> is about 15, and every single person in this set is above that number.</p>
-<p>You can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">Basketball Reference</a></p>
+<p>You can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on <a href="https://www.basketball-reference.com/leagues/NBA_2026_advanced.html">Basketball Reference</a>!</p>
 
 
 <!-- -->
@@ -936,92 +936,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    html:</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">        code-fold: show</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="an">exectute:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    eval: false</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>When every player is elite, it can be difficult to tell who is truly standing out among the stars. Traditional box score stats like points or rebounds only tell part of the story. Using **advanced analytics** allows us to quantify overall contributions, efficiency, and impact, helping identify players who might be undervalued or underacknowledged by casual fans.</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction </span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>In this tutorial, you’ll learn how to load NBA data from publicly available sources and use Python to explore these advanced metrics. The dataset we’ll use contains advanced stats for major players in the current NBA season (2025–2026) and is available at <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>. By the end of this guide, you’ll be able to filter, visualize, and compare top performers using meaningful metrics.</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>When every player is elite, it can be difficult to tell who is truly standing out among the stars. Traditional box score stats like points or rebounds only tell part of the story. Using **advanced analytics** allows us to quantify overall contributions, efficiency, and impact, helping identify players who might be undervalued or underacknowledged by casual fans.</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading in the Data</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>In this tutorial, you’ll learn how to load NBA data from publicly available sources and use Python to explore these advanced metrics. The dataset we’ll use contains advanced stats for major players in the current NBA season (2025–2026) and is available at <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>. By the end of this guide, you’ll be able to filter, visualize, and compare top performers using meaningful metrics.</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>We first want to import the libraries we'll be using for this, as well as the data. For this project we'll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using <span class="in">`table[0]`</span> selects the first one. </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading in the Data</span></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.basketball-reference.com/leagues/NBA_2026_advanced.html"</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.read_html(url)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Selects table with all the data we want</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> table[<span class="dv">0</span>]</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>Let's look at what our data looks like without any filtering.</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>We first want to import the libraries we'll be using for this, as well as the data. For this project we'll be using pandas and matplotlib. These will allow for us to handle the data and eventually visualize it. There are also sometimes multiple tables on the site, so using <span class="in">`table[0]`</span> selects the first one. </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.basketball-reference.com/leagues/NBA_2026_advanced.html"</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.read_html(url)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Selects table with all the data we want</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> table[<span class="dv">0</span>]</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>players.head()</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>We can see that each player has their associated advanced player statistcs. It looks like we've imported everything correctly!</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Let's look at what our data looks like without any filtering.</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>players.head()</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Filtering the Data</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>We can see that each player has their associated advanced player statistcs. It looks like we've imported everything correctly!</span>
 <span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>The data is already in a really nice format so the majority of our filtering will just be to focus on a subset of players rather than doing any cleaning of data. </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Filtering the Data</span></span>
 <span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>There is one common issue when using <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>. It's that the **Rk** tab at the top of the table actually repeats after about 20 or 30 cells. We want to get rid of that so we don't have any issues with it farther down the line. </span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> players[players[<span class="st">"Rk"</span>] <span class="op">!=</span> <span class="st">"Rk"</span>]</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>Now we want to filter the data to the best of the best players, the All-Stars for this NBA season. All-Stars in the NBA are selected by a combination of players and fans voting on who they think the best players in the NBA are currently. To do this I just created a list with every All-Star and then filtered only for NBA players that are within that list. </span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>The data is already in a really nice format so the majority of our filtering will just be to focus on a subset of players rather than doing any cleaning of data. </span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>There is one common issue when using <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>. It's that the **Rk** tab at the top of the table actually repeats after about 20 or 30 cells. We want to get rid of that so we don't have any issues with it farther down the line. </span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> players[players[<span class="st">"Rk"</span>] <span class="op">!=</span> <span class="st">"Rk"</span>]</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>all_stars <span class="op">=</span> [<span class="st">"Scottie Barnes"</span>,<span class="st">"Devin Booker"</span>,<span class="st">"Cade Cunningham"</span>, <span class="st">"Jalen Duren"</span>,<span class="st">"Anthony Edwards"</span>,</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Chet Holmgren"</span>,<span class="st">"Jalen Johnson"</span>,<span class="st">"Tyrese Maxey"</span>,<span class="st">"Jaylen Brown"</span>,<span class="st">"Jalen Brunson"</span>,</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Kevin Durant"</span>,<span class="st">"De'Aaron Fox"</span>,<span class="st">"Brandon Ingram"</span>, <span class="st">"Lebron James"</span>,<span class="st">"Kawhi Leonard"</span>,</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Donovan Mitchell"</span>,<span class="st">"Stephen Curry"</span>,<span class="st">"Deni Avdija"</span>,<span class="st">"Luka Dončić"</span>,</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Shai Gilgeous-Alexander"</span>,<span class="st">"Nikola Jokić"</span>, <span class="st">"Jamal Murray"</span>,<span class="st">"Norman Powell"</span>,</span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Alperen Sengun"</span>,<span class="st">"Pascsal Siakam"</span>,<span class="st">"Karl-Anthony Towns"</span>,<span class="st">"Victor Wembanyama"</span>,</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Giannis Antetokounmpo"</span>]</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Filters DataFrame to just All-Star players</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>all_star_players <span class="op">=</span> players[players[<span class="st">"Player"</span>].isin(all_stars)]</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plotting</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>Now we want to filter the data to the best of the best players, the All-Stars for this NBA season. All-Stars in the NBA are selected by a combination of players and fans voting on who they think the best players in the NBA are currently. To do this I just created a list with every All-Star and then filtered only for NBA players that are within that list. </span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>all_stars <span class="op">=</span> [<span class="st">"Scottie Barnes"</span>,<span class="st">"Devin Booker"</span>,<span class="st">"Cade Cunningham"</span>, <span class="st">"Jalen Duren"</span>,<span class="st">"Anthony Edwards"</span>,</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Chet Holmgren"</span>,<span class="st">"Jalen Johnson"</span>,<span class="st">"Tyrese Maxey"</span>,<span class="st">"Jaylen Brown"</span>,<span class="st">"Jalen Brunson"</span>,</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Kevin Durant"</span>,<span class="st">"De'Aaron Fox"</span>,<span class="st">"Brandon Ingram"</span>, <span class="st">"Lebron James"</span>,<span class="st">"Kawhi Leonard"</span>,</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Donovan Mitchell"</span>,<span class="st">"Stephen Curry"</span>,<span class="st">"Deni Avdija"</span>,<span class="st">"Luka Dončić"</span>,</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Shai Gilgeous-Alexander"</span>,<span class="st">"Nikola Jokić"</span>, <span class="st">"Jamal Murray"</span>,<span class="st">"Norman Powell"</span>,</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Alperen Sengun"</span>,<span class="st">"Pascsal Siakam"</span>,<span class="st">"Karl-Anthony Towns"</span>,<span class="st">"Victor Wembanyama"</span>,</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Giannis Antetokounmpo"</span>]</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Filters DataFrame to just All-Star players</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>all_star_players <span class="op">=</span> players[players[<span class="st">"Player"</span>].isin(all_stars)]</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>As I referenced earlier I will be using matplotlib for this portion. The advanced stat of my choosing is going to be **PER (Player Efficiency Rating)**. **PER** is a formula that combines all the good and bad things a player does into a single number. It's a good way to get a sense of how all-around elite a player is.</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plotting</span></span>
 <span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensures that PER is treated as a numeric type</span></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>all_star_players[<span class="st">"PER"</span>] <span class="op">=</span> pd.to_numeric(all_star_players[<span class="st">"PER"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the plot BIG</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots players as bars</span></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>plt.bar(all_star_players[<span class="st">"Player"</span>], all_star_players[<span class="st">"PER"</span>], color<span class="op">=</span><span class="st">"skyblue"</span>)</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Makes x-axis labels readable</span></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">"right"</span>)</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"PER"</span>)</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"2025-2026 NBA All-Stars - PER Comparison"</span>)</span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Save figure for embedding</span></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"all_stars_per.png"</span>)</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>As I referenced earlier I will be using matplotlib for this portion. The advanced stat of my choosing is going to be **PER (Player Efficiency Rating)**. **PER** is a formula that combines all the good and bad things a player does into a single number. It's a good way to get a sense of how all-around elite a player is.</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensures that PER is treated as a numeric type</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>all_star_players[<span class="st">"PER"</span>] <span class="op">=</span> pd.to_numeric(all_star_players[<span class="st">"PER"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the plot BIG</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots players as bars</span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>plt.bar(all_star_players[<span class="st">"Player"</span>], all_star_players[<span class="st">"PER"</span>], color<span class="op">=</span><span class="st">"skyblue"</span>)</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Makes x-axis labels readable</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">"right"</span>)</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"PER"</span>)</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"2025-2026 NBA All-Stars - PER Comparison"</span>)</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Save figure for embedding</span></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"all_stars_per.png"</span>)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>We now have a beautiful plot! We can see that the three standout players are **Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo,** which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It's worth mentioning that the league average for **PER** is about 15, and every single person in this set is above that number. </span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
 <span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>You can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>We now have a beautiful plot! We can see that the three standout players are **Nikola Jokic, Shai Gilgeous-Alexander, and Giannis Antetokounmpo,** which reflects the validity of this advanced stat as all three of those players are considered the most valuable to their team. It's worth mentioning that the league average for **PER** is about 15, and every single person in this set is above that number. </span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>You can now use this info to do all sorts of player comparisons for yourself or look into differences in team stats as that data is also available on <span class="co">[</span><span class="ot">Basketball Reference</span><span class="co">](https://www.basketball-reference.com/leagues/NBA_2026_advanced.html)</span>!</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
